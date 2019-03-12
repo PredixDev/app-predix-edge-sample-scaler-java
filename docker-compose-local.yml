@@ -1,0 +1,55 @@
+version: "3.0"
+
+services:
+  opcua-simulator:
+    image: "predixedge/predix-edge-opcua-simulator:1.0.10"
+    hostname: "opcua-simulator"
+    volumes:
+      - ./config:/config
+    networks:
+      - predix-edge-broker_net
+    ports:
+      - 4334:4334
+    #entrypoint: ["sh", "-c", "sleep 500000"]
+  opcua:
+    image: "dtr.predix.io/predix-edge/protocol-adapter-opcua:amd64-1.1.0"
+    environment:
+      config: "/config/config-opcua.json"
+    volumes:
+      - ./config:/config
+      - ./data:/data
+    networks:
+      - predix-edge-broker_net
+  cloud_gateway:
+    image: "dtr.predix.io/predix-edge/cloud-gateway:amd64-1.1.0"
+    environment:
+      config: "/config/config-cloud-gateway.json"
+      https_proxy: "$https_proxy"
+    volumes:
+      - ./config:/config
+      - ./data:/data
+      - ./data:/edge-agent
+    networks:
+      - predix-edge-broker_net
+
+  java-edge-app:
+    image: "predixedge/predix-edge-sample-scaler-java:1.0.24"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 39M
+    environment:
+      PUB_CLIENT_ID: "JavaSampleAppPubClient"
+      SUB_CLIENT_ID: "JavaSampleAppSubClient"
+      BROKER: "tcp://predix-edge-broker:1883"
+      SUB_TOPIC: "app_data"
+      PUB_TOPIC: "timeseries_data"
+      #TAG_NAME: "Compressor-CMMS-Compressor-2018.crank-frame-dischargepressure"
+      JAVA_OPTS: "-XX:+UseContainerSupport"
+    networks:
+      - predix-edge-broker_net
+    #entrypoint: ["sh", "-c", "sleep 500000"]
+networks:
+  predix-edge-broker_net:
+    external: true
