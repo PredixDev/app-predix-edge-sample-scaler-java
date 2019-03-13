@@ -6,7 +6,7 @@
 
 	<groupId>com.ge.predixedge</groupId>
 	<artifactId>predix-edge-sample-scaler-java</artifactId>
-	<version>1.0.24</version>
+	<version>1.0.35</version>
 
 	<properties>
 		<java.version>11</java.version>
