@@ -61,7 +61,7 @@ REPO_NAME="predix-edge-sample-scaler-java"
 APP_DIR="edge-sample-scaler-java"
 APP_NAME="Predix Edge Sample Scaler Java - local"
 SCRIPT="-script edge-starter-deploy.sh -script-readargs edge-starter-deploy-readargs.sh"
-SCRIPT_NAME="quickstart-edge-sample-scaler-java.sh"
+SCRIPT_NAME="quickstart-edge-sample-app.sh"
 TOOLS="Cloud Foundry CLI, Docker, Git, jq, Predix CLI, yq"
 TOOLS_SWITCHES="--cf --docker --git --jq --predixcli --yq"
 
