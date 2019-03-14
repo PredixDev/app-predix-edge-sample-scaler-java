@@ -33,7 +33,7 @@ services:
       - predix-edge-broker_net
 
   java-edge-app:
-    image: "predixedge/predix-edge-sample-scaler-java:1.0.38"
+    image: "predixedge/predix-edge-sample-scaler-java:1.0.39"
     deploy:
       resources:
         limits:
