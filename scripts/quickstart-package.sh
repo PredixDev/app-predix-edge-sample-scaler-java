@@ -131,7 +131,7 @@ if [[ -e 'predix-scripts' ]]; then
   echo "quickstart_args=$QUICKSTART_ARGS"
   source $PREDIX_SCRIPTS/bash/quickstart.sh $QUICKSTART_ARGS
 else
-  echo "Please run quickstart-edge-sample-app.sh first before running this script."
+  echo "Please run quickstart-edge-starter-sample-app.sh first before running this script."
   exit 1
 fi
 

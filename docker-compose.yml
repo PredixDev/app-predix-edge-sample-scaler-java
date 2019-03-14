@@ -24,7 +24,7 @@ services:
     networks:
       - predix-edge-broker_net
   java-edge-app:
-    image: "predixedge/predix-edge-sample-scaler-java:1.0.37"
+    image: "predixedge/predix-edge-sample-scaler-java:1.0.38"
     environment:
       PUB_CLIENT_ID: "JavaSampleAppPubClient"
       SUB_CLIENT_ID: "JavaSampleAppSubClient"
