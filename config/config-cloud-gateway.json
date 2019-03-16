@@ -16,7 +16,7 @@
               },
               "store_forward": {
                   "policy": "store_always",
-                  "max_store_percent": 90,
+                  "max_store_percent": 15,
                   "max_batch_interval": 1000
               },
               "timeseries": {
@@ -29,5 +29,3 @@
       }
   }
 }
-
-
